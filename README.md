@@ -39,26 +39,20 @@
 
 public:
 
-    Algo(const vector<Rule>& _rules): rules(_rules) {}
+    Algo(const vector<Rule>& _rules);
 
-    bool predict(const string& word) const;
+    bool predict(const string& word);
 
 private:
 
-    set<Configuration> Scan(const set<Configuration>& confs, char letter) const;
+    set<Configuration> Scan(const set<Configuration>& confs, char letter);
 
-    void Predict(vector<set<Configuration>>& stages, size_t step) const;
+    void Predict(vector<set<Configuration>>& stages, size_t step);
 
-    void Complete(vector<set<Configuration>>& stages, size_t step) const;
-
-    bool isUpperCase(char letter) const {
-
-        return ('A' <= letter) && (letter <= 'Z');
-
-    }
+    void Complete(vector<set<Configuration>>& stages, size_t step);
 
     vector<Rule> rules;
-    
+
 };
 
 Этот класс представляет собой реализацию алгоритма Эрли. Класс конструируется из массива правил, представляющих собой грамматику, в которой нужно будет проверять выводимость слова. Публичная функция ```predict``` принимает на вход слово и возвращает ```bool```, отвечающий, выводится слово или нет. В теле функции ```predict``` используется массив множеств конфигураций, которые возникают на соответствующей стадии алгоритма. Для реализации использованы три основные функции алгоритма Эрли: ```Predict``` принимает массив множеств конфигураций и индекс множества конфигураций, для каждой конфигурации которого нужно сделать ```Predict```. ```Complete``` работает аналогично. Как ```Predict```, так и ```Complete``` принимают первый аргумент по неконстантной ссылке и изменяют его, добавляя туда новые правила. ```Scan``` принимает на вход множество конфигураций и символ, а возвращает множество конфигураций, полученных из исходного множества чтением символа в соответствующем правиле каждой конфигурации, если это возможно, при этом ```Scan``` получает аргумент по константной ссылке. Заметим, что ни одна из функций не работает как замыкание - все они делают действия лишь на основе только полученных конфигураций, а затем сливают результат с исходным множеством. Корректность алгоритма достигается за счет внешнего цикла в функции ```predict```.
