@@ -1,0 +1,10 @@
+8
+$ S
+S aSa
+S a
+S bSb
+S b
+S cSc
+S c
+S _
+abccbaabaabccbc

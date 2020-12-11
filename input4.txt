@@ -1,0 +1,8 @@
+6
+$ S
+S C
+D aDb
+S SC
+C cD
+D _
+cabcaabcaabb

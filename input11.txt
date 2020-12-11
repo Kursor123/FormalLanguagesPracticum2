@@ -1,0 +1,9 @@
+7
+$ S
+S S+X
+X a
+X b
+X (S)
+X X*X
+S X
+a*b+b*b*(a+b)+b)*a

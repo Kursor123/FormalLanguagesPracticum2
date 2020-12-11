@@ -1,0 +1,9 @@
+7
+$ S
+S Sa
+D cD
+S SSb
+S C
+C Dd
+D _
+abcdaabc
